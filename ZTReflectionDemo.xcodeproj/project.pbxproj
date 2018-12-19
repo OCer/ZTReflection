@@ -13,6 +13,8 @@
 		C6331E6A21CA120300558D41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6331E6921CA120300558D41 /* Assets.xcassets */; };
 		C6331E6D21CA120300558D41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6331E6B21CA120300558D41 /* LaunchScreen.storyboard */; };
 		C6331E7021CA120300558D41 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C6331E6F21CA120300558D41 /* main.m */; };
+		C6331E7C21CA125200558D41 /* ZTReflection.m in Sources */ = {isa = PBXBuildFile; fileRef = C6331E7A21CA125200558D41 /* ZTReflection.m */; };
+		C6331E7F21CA126B00558D41 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = C6331E7E21CA126B00558D41 /* Test.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,11 @@
 		C6331E6C21CA120300558D41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C6331E6E21CA120300558D41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C6331E6F21CA120300558D41 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C6331E7A21CA125200558D41 /* ZTReflection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZTReflection.m; sourceTree = "<group>"; };
+		C6331E7B21CA125200558D41 /* ZTReflection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZTReflection.h; sourceTree = "<group>"; };
+		C6331E7D21CA126B00558D41 /* Test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
+		C6331E7E21CA126B00558D41 /* Test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
+		C6331E8021CA127800558D41 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,10 +65,14 @@
 		C6331E5F21CA120200558D41 /* ZTReflectionDemo */ = {
 			isa = PBXGroup;
 			children = (
+				C6331E7921CA125200558D41 /* ZTReflection */,
 				C6331E6021CA120200558D41 /* AppDelegate.h */,
 				C6331E6121CA120200558D41 /* AppDelegate.m */,
 				C6331E6321CA120200558D41 /* ViewController.h */,
 				C6331E6421CA120200558D41 /* ViewController.m */,
+				C6331E7D21CA126B00558D41 /* Test.h */,
+				C6331E7E21CA126B00558D41 /* Test.m */,
+				C6331E8021CA127800558D41 /* Header.h */,
 				C6331E6621CA120200558D41 /* Main.storyboard */,
 				C6331E6921CA120300558D41 /* Assets.xcassets */,
 				C6331E6B21CA120300558D41 /* LaunchScreen.storyboard */,
@@ -69,6 +80,15 @@
 				C6331E6F21CA120300558D41 /* main.m */,
 			);
 			path = ZTReflectionDemo;
+			sourceTree = "<group>";
+		};
+		C6331E7921CA125200558D41 /* ZTReflection */ = {
+			isa = PBXGroup;
+			children = (
+				C6331E7B21CA125200558D41 /* ZTReflection.h */,
+				C6331E7A21CA125200558D41 /* ZTReflection.m */,
+			);
+			path = ZTReflection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,8 +161,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6331E7F21CA126B00558D41 /* Test.m in Sources */,
 				C6331E6521CA120200558D41 /* ViewController.m in Sources */,
 				C6331E7021CA120300558D41 /* main.m in Sources */,
+				C6331E7C21CA125200558D41 /* ZTReflection.m in Sources */,
 				C6331E6221CA120200558D41 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
