@@ -29,6 +29,73 @@
     return;
 }
 
++ (int)testReturnInt
+{
+    return 2333;
+}
+
++ (double)testReturnDouble
+{
+    return 4.333f;
+}
+
++ (char)testReturnChar
+{
+    return 'E';
+}
+
++ (char *)testReturnStr
+{
+    return "EDG";
+}
+
++ (char **)testReturnP
+{
+    char *string = "PP";
+    char **p1 = &string;
+    
+    NSLog(@"PP1 = %p PP2 = %p", string, p1);
+    return p1;
+}
+
++ (Class)testReturnClass
+{
+    return [NSData class];
+}
+
++ (IMP)testReturnIMP
+{
+    IMP imp = [self methodForSelector:NSSelectorFromString(@"test")];
+    NSLog(@"imp = %p", imp);
+    
+    return imp;
+}
+
++ (SEL)testReturnSEL
+{
+    return NSSelectorFromString(@"KK");
+}
+
++ (CGSize)testReturnCGSize
+{
+    return CGSizeMake(99, 88);
+}
+
++ (void(^)(void))testReturnBlock
+{
+    void (^block)(void) = ^(){
+        NSLog(@"testReturnBlock call");
+    };
+    
+    return block;
+}
+
++ (YY)testReturnStruct
+{
+    YY yy = {666, 23.8f, 777};
+    return yy;
+}
+
 - (void)test
 {
     NSLog(@"%s", __func__);

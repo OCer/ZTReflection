@@ -21,7 +21,7 @@
     return result;
 }
 
-+ (BOOL)performWithTarget:(id)target returnValue:(void **)returnValue selectorStringAndParameter:(NSString *)selString, ...
++ (BOOL)performWithTarget:(id)target returnValue:(void *)returnValue selectorStringAndParameter:(NSString *)selString, ...
 {
     va_list params;
     va_start(params, selString);
@@ -31,7 +31,7 @@
     return result;
 }
 
-+ (BOOL)performWithTarget:(id)target returnValue:(void **)returnValue selectorString:(NSString *)selString parameter:(va_list)params
++ (BOOL)performWithTarget:(id)target returnValue:(void *)returnValue selectorString:(NSString *)selString parameter:(va_list)params
 {
     if ((target == nil) || ([selString length] == 0))
     {
