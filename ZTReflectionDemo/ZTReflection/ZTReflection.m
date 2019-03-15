@@ -11,31 +11,36 @@
 
 @implementation ZTReflection
 
-+ (BOOL)performWithTarget:(id)target selectorStringAndParameter:(NSString *)selString, ...
++ (ZTReflectionResults)performWithTarget:(id)target selectorStringAndParameter:(NSString *)selString, ...
 {
     va_list params;
     va_start(params, selString);
-    BOOL result = [self performWithTarget:target returnValue:NULL selectorString:selString parameter:params];
+    ZTReflectionResults result = [self performWithTarget:target returnValue:NULL selectorString:selString parameter:params];
     va_end(params);
     
     return result;
 }
 
-+ (BOOL)performWithTarget:(id)target returnValue:(void *)returnValue selectorStringAndParameter:(NSString *)selString, ...
++ (ZTReflectionResults)performWithTarget:(id)target returnValue:(void *)returnValue selectorStringAndParameter:(NSString *)selString, ...
 {
     va_list params;
     va_start(params, selString);
-    BOOL result = [self performWithTarget:target returnValue:returnValue selectorString:selString parameter:params];
+    ZTReflectionResults result = [self performWithTarget:target returnValue:returnValue selectorString:selString parameter:params];
     va_end(params);
     
     return result;
 }
 
-+ (BOOL)performWithTarget:(id)target returnValue:(void *)returnValue selectorString:(NSString *)selString parameter:(va_list)params
++ (ZTReflectionResults)performWithTarget:(id)target returnValue:(void *)returnValue selectorString:(NSString *)selString parameter:(va_list)params
 {
-    if ((target == nil) || ([selString length] == 0))
+    if (target == nil)
     {
-        return NO;
+        return ZTReflectionResultsTarget;
+    }
+    
+    if ([selString length] == 0)
+    {
+        return ZTReflectionResultsSelector;
     }
     
     SEL sel = NSSelectorFromString(selString);
@@ -207,10 +212,10 @@
             [invocation getReturnValue:returnValue];
         }
         
-        return YES;
+        return ZTReflectionResultsSuccessful;
     }
     
-    return NO;
+    return ZTReflectionResultsError;
 }
 
 @end

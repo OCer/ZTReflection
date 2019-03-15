@@ -35,7 +35,7 @@
     NSLog(@"p1 = %p p2 = %p imp = %p", p1, p2, imp);
     
     // 不需要返回值时的调用（当然也可以调用下面的那个，返回值参数那里传NULL就是不获取返回值）
-    Class class = NSClassFromString(@"Test");
+    Class class = [NSClassFromString(@"Test") class]; // 建议调一次class方法，预防NSClassFromString出来的不是真正的类对象导致的错误
     [ZTReflection performWithTarget:class selectorStringAndParameter:@"test:p1:p2:p3:p4:p5:p6:p7:p8:p9:p10:p11:p12:p13:p14:p15:", nil, @"p111", 222, 3.33f, CGSizeMake(1, 4), [NSNull null], block, YES, 'C', "C++", value, NSSelectorFromString(@"RTT"), p1, p2, [NSObject class], imp];
 
     // 一个参数
@@ -45,7 +45,7 @@
     [ZTReflection performWithTarget:[class new] returnValue:NULL selectorStringAndParameter:@"test"];
     
     // 测试返回值
-    id __unsafe_unretained tempStr = NULL;
+    __unsafe_unretained id tempStr = NULL; // 不建议用__weak，会引发控制台报错（虽然可以无视）
     [ZTReflection performWithTarget:class returnValue:&tempStr selectorStringAndParameter:@"test:p1:p2:p3:p4:p5:p6:p7:p8:p9:p10:p11:p12:p13:p14:p15:", @"带返回值的调用", @"p222", 222, 3.33f, CGSizeMake(5, 5), [NSNull null], nil, YES, 'Y', NULL, value, NSSelectorFromString(@"RTT"), p1, p2, [NSString class], imp];
     NSArray *array = (NSArray *)tempStr;
     NSLog(@"返回值 = %@", array);
@@ -78,7 +78,7 @@
     [ZTReflection performWithTarget:class returnValue:&tempP selectorStringAndParameter:@"testReturnP"];
     NSLog(@"返回值 = %p", tempP);
     
-    Class __unsafe_unretained tempcClass;
+    __unsafe_unretained Class tempcClass;
     [ZTReflection performWithTarget:class returnValue:&tempcClass selectorStringAndParameter:@"testReturnClass"];
     NSLog(@"返回值 = %@", tempcClass);
     
